@@ -1,0 +1,134 @@
+\documentclass[12pt,a4paper]{article}
+
+% Preamble - Package imports
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{natbib}
+\usepackage{geometry}
+
+% Document settings
+\geometry{margin=1in}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+
+% Custom commands
+\newcommand{\comphy}{\textsc{CoMPhy Gruvbox}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+% Theorem environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% Code listing style
+\lstdefinestyle{comphy}{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{red}\bfseries,
+    stringstyle=\color{green},
+    commentstyle=\color{gray}\itshape,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!10}
+}
+
+\title{{\Huge\comphy{} Theme}\\[0.5em]
+       \Large A LaTeX Demonstration Document}
+\author{Vatsal Sanjay\\
+        \texttt{vatsal@example.com}\\[0.5em]
+        Department of Computer Science\\
+        University of Examples}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document demonstrates the \LaTeX{} syntax highlighting capabilities of the \comphy{} theme. We explore various \LaTeX{} constructs including mathematical formulas, environments, custom commands, and advanced typesetting features. The theme provides excellent contrast and readability for all \LaTeX{} elements, making document preparation more enjoyable and efficient.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+\label{sec:intro}
+
+Welcome to this comprehensive \LaTeX{} demonstration showcasing the \comphy{} theme's syntax highlighting capabilities.
+
+\subsection{Document Structure}
+
+A typical \LaTeX{} document consists of:
+\begin{itemize}
+    \item A \textbf{preamble} containing package imports and settings
+    \item The \texttt{document} environment containing the actual content
+    \item Various \emph{sections} and \emph{subsections} for organization
+\end{itemize}
+
+\section{Mathematics}
+\label{sec:math}
+
+\subsection{Inline Mathematics}
+
+Inline math mode is entered using \verb|$...$|. The quadratic formula is $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$, and Euler's identity is $e^{i\pi} + 1 = 0$.
+
+\subsection{Display Mathematics}
+
+\begin{equation}
+    \label{eq:gaussian}
+    f(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+\end{equation}
+
+The Gaussian distribution in Equation~\eqref{eq:gaussian} is fundamental in probability theory.
+
+\begin{theorem}[Fundamental Theorem of Calculus]
+\label{thm:ftc}
+If $f$ is continuous on $[a,b]$ and $F$ is an antiderivative of $f$ on $[a,b]$, then:
+\[
+    \int_a^b f(x)\,dx = F(b) - F(a)
+\]
+\end{theorem}
+
+\begin{proof}
+Let $F'(x) = f(x)$ for all $x \in [a,b]$. By the definition of the definite integral and the mean value theorem, we can show that the integral equals $F(b) - F(a)$.
+\end{proof}
+
+\subsection{Matrix Operations}
+
+\begin{equation}
+    \vec{A} = \begin{pmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mn}
+    \end{pmatrix}
+\end{equation}
+
+\section{Conclusion}
+
+This document has demonstrated the comprehensive \LaTeX{} syntax highlighting capabilities of the \comphy{} theme.
+
+\end{document}
