@@ -1,0 +1,3 @@
+interface:
+  display_name: "Release Comphy Nvim Theme"
+  short_description: "Manual release notes, docs updates, tagging, and GitHub release publish"
