@@ -1,17 +1,17 @@
-# comphy-gruvbox.nvim
+# comphy-theme.nvim
 
-High-contrast Neovim colorscheme plugin with configurable contrast, italics/bold options, and language-specific highlight tuning.
+Warm, purple-accent Neovim colorscheme aligned with the CoMPhy Obsidian theme. Features purple-tinted backgrounds, cream foreground, Obsidian-derived syntax colors, a six-color heading cascade, and language-specific highlight tuning.
 
 ## Structure
 
 ```text
 comphy-nvim-theme/
-├── colors/comphy_gruvbox.lua         # Colorscheme entrypoint for :colorscheme
-├── lua/comphy_gruvbox/init.lua       # Public setup() API and option handling
-├── lua/comphy_gruvbox/palette.lua    # Central color palette values
-├── lua/comphy_gruvbox/groups.lua     # Highlight group definitions
-├── examples/                         # Syntax fixtures for visual validation
-└── README.md                         # User-facing setup and configuration docs
+├── colors/comphy-theme.lua          # Colorscheme entrypoint for :colorscheme
+├── lua/comphy-theme/init.lua        # Public setup() API and option handling
+├── lua/comphy-theme/palette.lua     # Central color palette values
+├── lua/comphy-theme/groups.lua      # Highlight group definitions
+├── examples/                        # Syntax fixtures for visual validation
+└── README.md                        # User-facing setup and configuration docs
 ```
 
 ## Development
@@ -21,12 +21,12 @@ comphy-nvim-theme/
 stylua lua colors examples
 
 # Quick load check (requires Neovim 0.10+)
-nvim --headless -u NONE "+set rtp+=." "+lua require('comphy_gruvbox').setup()" "+colorscheme comphy_gruvbox" "+qa"
+nvim --headless -u NONE "+set rtp+=." "+lua require('comphy-theme').setup()" "+colorscheme comphy-theme" "+qa"
 ```
 
 ## Guidelines
 
-- Keep palette definitions centralized in `lua/comphy_gruvbox/palette.lua`.
-- Add or adjust highlight groups in `lua/comphy_gruvbox/groups.lua`; keep config handling in `lua/comphy_gruvbox/init.lua`.
+- Keep palette definitions centralized in `lua/comphy-theme/palette.lua`.
+- Add or adjust highlight groups in `lua/comphy-theme/groups.lua`; keep config handling in `lua/comphy-theme/init.lua`.
 - Preserve existing setup options and defaults unless intentionally changing public API behavior.
 - Update `README.md` when adding new options, behaviors, or requirements.

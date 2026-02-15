@@ -1,15 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.com/comphy-gruvbox-config.schema.json",
-  "title": "CoMPhy Gruvbox Theme Configuration",
-  "description": "Configuration file for CoMPhy Gruvbox theme demonstrating JSON syntax highlighting",
+  "$id": "https://example.com/comphy-theme-config.schema.json",
+  "title": "CoMPhy Theme Configuration",
+  "description": "Configuration file for the CoMPhy Theme demonstrating JSON syntax highlighting",
   "type": "object",
   "required": ["name", "version", "themes"],
 
   "properties": {
     "name": {
       "type": "string",
-      "const": "comphy-gruvbox-themes"
+      "const": "comphy-theme-themes"
     },
 
     "version": {
@@ -198,7 +198,10 @@
         "betaAPI": {
           "type": ["object", "null"],
           "properties": {
-            "enabled": false,
+            "enabled": {
+              "type": "boolean",
+              "default": false
+            },
             "apiKey": {
               "type": "string",
               "writeOnly": true
@@ -268,7 +271,7 @@
 
   "examples": [
     {
-      "name": "comphy-gruvbox-themes",
+      "name": "comphy-theme-themes",
       "version": "1.0.0",
       "author": {
         "name": "Vatsal Sanjay",
@@ -276,7 +279,7 @@
       },
       "themes": [
         {
-          "name": "CoMPhy Gruvbox Dark",
+          "name": "CoMPhy Theme Dark",
           "type": "dark",
           "colors": {
             "background": "#1d2021",
@@ -326,7 +329,7 @@
       },
       "configuration": {
         "workbench": {
-          "colorTheme": "CoMPhy Gruvbox Dark",
+          "colorTheme": "CoMPhy Theme Dark",
           "iconTheme": null,
           "fontFamily": "'Fira Code', 'Consolas', monospace",
           "fontSize": 14

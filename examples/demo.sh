@@ -19,7 +19,7 @@ readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly VERSION="1.0.0"
 
 # Configuration variables
-THEME_NAME="${THEME_NAME:-comphy-gruvbox}"
+THEME_NAME="${THEME_NAME:-comphy-theme}"
 DEBUG_MODE="${DEBUG:-false}"
 
 # Function: Display usage information

@@ -1,6 +1,6 @@
-# CoMPhy Gruvbox Theme Demo
+# CoMPhy Theme Demo
 
-> A comprehensive demonstration of Markdown syntax highlighting with the CoMPhy Gruvbox theme.
+> A comprehensive demonstration of Markdown syntax highlighting with the CoMPhy Theme.
 
 ## Table of Contents
 
@@ -15,11 +15,11 @@
 
 ## Introduction
 
-This document showcases various **Markdown** elements to demonstrate how they appear with the _CoMPhy Gruvbox_ theme. The theme provides excellent contrast and readability for all Markdown elements.
+This document showcases various **Markdown** elements to demonstrate how they appear with the _CoMPhy Theme_. The theme provides excellent contrast and readability for all Markdown elements.
 
-### Why CoMPhy Gruvbox?
+### Why CoMPhy Theme?
 
-The ***CoMPhy Gruvbox*** theme offers:
+The ***CoMPhy Theme*** offers:
 - **High contrast** for better visibility
 - *Carefully selected* color palette
 - Support for `inline code` elements
@@ -59,8 +59,8 @@ Use `const` instead of `var` in JavaScript. The `git status` command shows chang
 
 ```javascript
 // JavaScript example
-const comphyGruvbox = {
-  name: 'CoMPhy Gruvbox',
+const comphyTheme = {
+  name: 'CoMPhy Theme',
   type: 'dark',
   colors: {
     background: '#000000',
@@ -74,13 +74,13 @@ const comphyGruvbox = {
 class ThemeManager:
     """Manages color themes for the editor"""
 
-    def __init__(self, theme_name="comphy_gruvbox"):
+    def __init__(self, theme_name="comphy-theme"):
         self.theme_name = theme_name
 ```
 
 ## Tables
 
-| Feature | CoMPhy Gruvbox | Standard Theme |
+| Feature | CoMPhy Theme | Standard Theme |
 |---------|----------------|----------------|
 | Contrast Ratio | 21:1 | 7:1 |
 | Color Count | 16 | 8 |
@@ -107,4 +107,4 @@ class ThemeManager:
 
 ## Conclusion
 
-The **CoMPhy Gruvbox** theme provides excellent highlighting for all Markdown elements, making your documents both *beautiful* and ***highly readable***.
+The **CoMPhy Theme** provides excellent highlighting for all Markdown elements, making your documents both *beautiful* and ***highly readable***.
