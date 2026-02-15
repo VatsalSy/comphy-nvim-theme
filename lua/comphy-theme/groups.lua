@@ -81,17 +81,17 @@ function M.get(p, o)
 
     -- Menus / popups
     Pmenu = { fg = p.fg0, bg = surface2 },
-    PmenuSel = { fg = p.fg0, bg = p.hover_bg, bold = true },
+    PmenuSel = { fg = p.fg0, bg = p.selection_high, bold = true },
     PmenuSbar = { bg = surface3 },
     PmenuThumb = { bg = surface3 },
 
     -- Search / selection
-    Search = { fg = p.bg0, bg = p.keyword, bold = true },
-    IncSearch = { fg = p.bg0, bg = p.operator, bold = true },
+    Search = { fg = "#18131d", bg = p.number, bold = true },
+    IncSearch = { fg = "#18131d", bg = p.operator, bold = true },
     CurSearch = { link = "IncSearch" },
     Visual = { bg = selection_bg },
     -- VSCode uses a subtle background for matched brackets
-    MatchParen = { bg = p.bg2 },
+    MatchParen = { fg = p.fg0, bg = p.selection_med, bold = true },
 
     -- Syntax (vim)
     Comment = { fg = p.comment, italic = bool(italics.comments) },
@@ -189,9 +189,9 @@ function M.get(p, o)
     ["@field"] = { fg = p.property },
     ["@property"] = { fg = p.property },
     ["@function"] = { fg = p.func }, -- Use pink for functions
-    ["@function.call"] = { fg = p.func_green }, -- Function calls in green
+    ["@function.call"] = { fg = p.func_call }, -- Function calls in green
     ["@method"] = { fg = p.func },
-    ["@method.call"] = { fg = p.func_green },
+    ["@method.call"] = { fg = p.func_call },
     ["@keyword"] = { link = "Keyword" },
     ["@keyword.conditional"] = { fg = p.kw_ctrl },
     ["@keyword.repeat"] = { fg = p.kw_ctrl },
@@ -206,7 +206,7 @@ function M.get(p, o)
     ["@punctuation.special"] = { fg = p.operator },
     ["@type"] = { link = "Type" },
     ["@type.builtin"] = { link = "Type" },
-    ["@namespace"] = { fg = p.number }, -- bright purple
+    ["@namespace"] = { fg = p.keyword }, -- pink (Obsidian keyword)
     ["@type.parameter"] = { link = "Type" },
     ["@attribute"] = { fg = p.decorator },
 
@@ -222,12 +222,12 @@ function M.get(p, o)
     ["@parameter.python"] = { fg = p.property },
 
     -- LaTeX-specific highlights (modern Treesitter queries)
-    ["@function.latex"] = { fg = p.func_green }, -- LaTeX commands like \section
-    ["@function.macro.latex"] = { fg = p.func_green }, -- LaTeX macros
-    ["@function.builtin.latex"] = { fg = p.func_green }, -- Built-in LaTeX commands
+    ["@function.latex"] = { fg = p.func_call }, -- LaTeX commands like \section
+    ["@function.macro.latex"] = { fg = p.func_call }, -- LaTeX macros
+    ["@function.builtin.latex"] = { fg = p.func_call }, -- Built-in LaTeX commands
     ["@keyword.latex"] = { fg = p.kw_ctrl }, -- LaTeX keywords
     ["@keyword.control.latex"] = { fg = p.kw_ctrl }, -- \begin, \end
-    ["@keyword.import.latex"] = { fg = p.func_green }, -- \usepackage, \documentclass should be green
+    ["@keyword.import.latex"] = { fg = p.func_call }, -- \usepackage, \documentclass should be green
     ["@text.math.latex"] = { fg = p.latex_math }, -- Math mode
     ["@text.environment.latex"] = { fg = p.type }, -- Environment names
     ["@text.environment.name.latex"] = { fg = p.type }, -- Environment names in \begin{}
@@ -250,42 +250,42 @@ function M.get(p, o)
     ["@markup.raw.latex"] = { fg = p.string }, -- Verbatim/raw text
     ["@module.latex"] = { fg = p.type }, -- Package names
     ["@namespace.latex"] = { fg = p.type }, -- Namespaces
-    ["@support.function.latex"] = { fg = p.func_green }, -- Support functions
+    ["@support.function.latex"] = { fg = p.func_call }, -- Support functions
     ["@entity.name.latex"] = { fg = p.entity_name },
 
     -- LSP semantic-token fallbacks (texlab)
     ["@lsp.type.module.latex"] = { fg = p.type },
     ["@lsp.type.namespace.latex"] = { fg = p.type },
-    ["@lsp.type.function.latex"] = { fg = p.func_green },
+    ["@lsp.type.function.latex"] = { fg = p.func_call },
 
     -- Treesitter: Markdown/markup
-    ["@markup.heading"] = { fg = p.keyword, bold = true },
-    ["@markup.heading.1"] = { fg = p.keyword, bold = true },
-    ["@markup.heading.2"] = { fg = p.keyword, bold = true },
-    ["@markup.heading.3"] = { fg = p.keyword, bold = true },
-    ["@markup.heading.4"] = { fg = p.keyword, bold = true },
-    ["@markup.heading.5"] = { fg = p.keyword, bold = true },
-    ["@markup.heading.6"] = { fg = p.keyword, bold = true },
-    ["@markup.strong"] = { fg = p.fg0, bold = true },
-    ["@markup.italic"] = { fg = p.fg0, italic = true },
+    ["@markup.heading"] = { fg = p.heading_1, bold = true },
+    ["@markup.heading.1"] = { fg = p.heading_1, bold = true },
+    ["@markup.heading.2"] = { fg = p.heading_2, bold = true },
+    ["@markup.heading.3"] = { fg = p.heading_3, bold = true },
+    ["@markup.heading.4"] = { fg = p.heading_4, bold = true },
+    ["@markup.heading.5"] = { fg = p.heading_5, bold = true },
+    ["@markup.heading.6"] = { fg = p.heading_6, bold = true },
+    ["@markup.strong"] = { fg = p.const, bold = true },
+    ["@markup.italic"] = { fg = p.magic, italic = true },
     ["@markup.strikethrough"] = { strikethrough = true },
     ["@markup.link"] = { fg = p.link },
     ["@markup.link.url"] = { fg = p.link, underline = true },
     ["@markup.link.label"] = { fg = p.link_active },
     ["@string.special.url"] = { fg = p.link, underline = true },
-    ["@markup.raw"] = { fg = p.string }, -- inline code
-    ["@markup.raw.block"] = transparent and { fg = p.string } or { fg = p.string, bg = surface2 }, -- code block
+    ["@markup.raw"] = { fg = p.variable }, -- code-normal (light purple)
+    ["@markup.raw.block"] = transparent and { fg = p.variable } or { fg = p.variable, bg = p.code_bg }, -- code block
     ["@markup.list"] = { fg = p.operator },
     ["@markup.quote"] = { fg = p.comment },
 
     -- Legacy Vim markdown (fallback when no Treesitter)
-    Title = { fg = p.keyword, bold = true },
-    markdownH1 = { link = "Title" },
-    markdownH2 = { link = "Title" },
-    markdownH3 = { link = "Title" },
-    markdownH4 = { link = "Title" },
-    markdownH5 = { link = "Title" },
-    markdownH6 = { link = "Title" },
+    Title = { fg = p.heading_1, bold = true },
+    markdownH1 = { fg = p.heading_1, bold = true },
+    markdownH2 = { fg = p.heading_2, bold = true },
+    markdownH3 = { fg = p.heading_3, bold = true },
+    markdownH4 = { fg = p.heading_4, bold = true },
+    markdownH5 = { fg = p.heading_5, bold = true },
+    markdownH6 = { fg = p.heading_6, bold = true },
     markdownHeadingDelimiter = { fg = p.decorator },
     markdownBold = { bold = true },
     markdownItalic = { italic = true },
@@ -298,16 +298,16 @@ function M.get(p, o)
     markdownBlockquote = { fg = p.comment },
 
     -- Legacy LaTeX syntax highlighting (non-Treesitter)
-    texCmd = { fg = p.func_green }, -- LaTeX commands
-    texCmdName = { fg = p.func_green },
-    texFunction = { fg = p.func_green },
+    texCmd = { fg = p.func_call }, -- LaTeX commands
+    texCmdName = { fg = p.func_call },
+    texFunction = { fg = p.func_call },
     texStatement = { fg = p.kw_ctrl }, -- \begin, \end, etc
     texBeginEnd = { fg = p.kw_ctrl },
     texBeginEndName = { fg = p.type }, -- Environment names
-    texDocType = { fg = p.func_green }, -- \documentclass should be green
+    texDocType = { fg = p.func_call }, -- \documentclass should be green
     texDocTypeArgs = { fg = p.type },
-    texInputFile = { fg = p.func_green }, -- \usepackage, \input should be green
-    texSection = { fg = p.func_green }, -- Section commands
+    texInputFile = { fg = p.func_call }, -- \usepackage, \input should be green
+    texSection = { fg = p.func_call }, -- Section commands
     texSectionName = { fg = p.latex_math, bold = true },
     texTitle = { fg = p.latex_math, bold = true },
     texMathZone = { fg = p.latex_math }, -- Math zones
@@ -318,7 +318,7 @@ function M.get(p, o)
     texString = { fg = p.string },
     texRefZone = { fg = p.const }, -- References
     texCite = { fg = p.const }, -- Citations
-    texNewCmd = { fg = p.func_green }, -- \newcommand
+    texNewCmd = { fg = p.func_call }, -- \newcommand
     texCmdArgs = { fg = p.property }, -- Command arguments
     texOpt = { fg = p.property }, -- Optional arguments
 

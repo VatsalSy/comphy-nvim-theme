@@ -1,9 +1,9 @@
 -- luacheck: globals vim
 -- Safely attempt to load the theme to avoid hard failures when the plugin
 -- is missing from the runtimepath (e.g., when :colorscheme is called early).
-local ok, mod = pcall(require, "comphy_gruvbox")
+local ok, mod = pcall(require, "comphy-theme")
 if not ok then
-  local msg = "comphy_gruvbox: plugin not found on runtimepath"
+  local msg = "comphy-theme: plugin not found on runtimepath"
   if _G.vim then
     local has_levels = vim.log and vim.log.levels
     if vim.notify then

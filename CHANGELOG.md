@@ -5,43 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2025-01-06
+## [Unreleased]
+
+### Added
+
+- Complete palette overhaul aligned with CoMPhy Obsidian theme
+- Purple-tinted background layers (bg0–bg5) with pure black editor background
+- Warm cream foreground tiers (fg0–fg3) from Obsidian text hierarchy
+- Obsidian-derived syntax colors: olive strings, pink keywords, cyan functions, golden numbers, aqua types, orange operators, light purple variables
+- Six-color heading cascade matching Obsidian (purple, gold, golden-yellow, green, teal, blue)
+- Purple-family UI accents (cursor, selection, focus ring, line numbers)
+- Full terminal ANSI palette (16 colors)
+- `code_bg` key for code block backgrounds
+- `func_call` palette key (replaces former `func_green`)
+- `bg4`, `bg5`, `fg2`, `fg3` palette keys for finer layering
 
 ### Changed
 
-- Rebranded from `gruvbox_custom_crisp_themes.nvim` to `comphy-gruvbox.nvim`
-- Module name changed from `gruvbox_crisp` to `comphy_gruvbox`
-- Colorscheme name changed from `gruvbox_crisp` to `comphy_gruvbox`
+- Renamed module from `comphy_gruvbox` to `comphy-theme`
+- Colorscheme command: `:colorscheme comphy-theme`
+- Require path: `require("comphy-theme")`
+- All syntax colors replaced — zero Dracula orphans remain
+- Diagnostics use warmer Obsidian support palette (red, yellow, blue, aqua, green)
+- Search highlights: dark-on-golden (was dark-on-keyword)
+- MatchParen: fg0 on selection with bold (was plain bg2)
+- PmenuSel: uses selection_high (was hover_bg)
+- `@namespace`: keyword color (was number)
+- `@markup.raw`: uses variable/code-normal (was string)
+- `@markup.strong`: light purple bold; `@markup.italic`: green italic
+- Legacy markdown headings use per-level colors instead of link to Title
 
-### Features
+### Removed
 
-- Initial release with VSCode Gruvbox Crisp (Highest Contrast, pop) specification
-- Pure black (#000000) background for maximum contrast
-- Vibrant Dracula-inspired color palette
-- Comprehensive Python syntax support:
-  - Decorators: purple (#9b4fa0)
-  - self/cls parameters: italic, parameter color (#83a598)
-  - Magic/dunder methods: dedicated color (#8ec07c)
-  - Type hints and annotations: cyan (#8be9fd)
-  - Docstrings: comment color, italic (#6272a4)
-- Full LaTeX highlighting support:
-  - LaTeX commands: green (#b8bb26)
-  - Control keywords (\begin, \end): red (#fb4934)
-  - Math mode: yellow (#fabd2f)
-  - Environment names: cyan (#8be9fd)
-  - Comments (%): gray, italic (#7c6f64)
-- Tree-sitter support with fallback to legacy Vim syntax
-- Customizable italics and bold options
-- Terminal color configuration
-- Override capability for highlight groups
-- Soft contrast option adjusts the base editor background to a slightly softer, dark gray shade
-
-### Docs
-
-- Clarify that `style = 'light'` currently aliases the dark palette. A true
-  light palette is planned; until then `light` renders identical to `dark`.
-- Update Requirements to "Neovim 0.10.0 or higher" and note that the
-  `LspInlayHint` highlight group was introduced in Neovim 0.10.0; users on
-  older versions should upgrade or remove inlay-hint-related configuration.
-
-[1.0.0]: https://github.com/VatsalSy/comphy-gruvbox.nvim/releases/tag/v1.0.0
+- All Dracula-inspired colors
+- `func_green` palette key (replaced by `func_call`)

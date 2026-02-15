@@ -255,7 +255,7 @@ void demonstrate_pointers(void) {
 void file_operations_demo(void) {
     print_banner("File Operations");
 
-    const char *filename = "test_comphy_gruvbox.txt";
+    const char *filename = "test_comphy_theme.txt";
     FILE *file = fopen(filename, "w+");
 
     if (file == NULL) {

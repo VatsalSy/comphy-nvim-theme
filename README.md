@@ -1,12 +1,13 @@
-# comphy-gruvbox.nvim
+# comphy-theme.nvim
 
-A high-contrast Neovim colorscheme based on the VSCode "Gruvbox Crisp Anysphere (Highest Contrast, pop)" specification. Features pure black backgrounds, vibrant Dracula-inspired colors, and extensive language-specific support for Python, LaTeX, and more.
+A warm, purple-accent Neovim colorscheme aligned with the CoMPhy Obsidian theme. Features purple-tinted dark backgrounds, cream foreground, an Obsidian-derived syntax palette, and a six-color heading cascade. Extensive language-specific support for Python, LaTeX, Markdown, and more.
 
 ## Features
 
-- **Maximum Contrast**: Pure black (#000000) background with pure white (#ffffff) foreground
+- **Warm Purple Backgrounds**: Purple-tinted near-black (`#0d0a11`) with cream (`#ece6de`) foreground
 - **Soft Variant**: Enable soft contrast via `contrast = "soft"` to use the theme's `bg1` background for reduced eye strain
-- **VSCode Parity**: Exact color matching with VSCode Gruvbox Crisp theme
+- **Obsidian Alignment**: Every color traces back to the CoMPhy Obsidian theme's design system
+- **Heading Cascade**: Six distinct heading colors matching Obsidian (purple, gold, golden-yellow, green, teal, blue)
 - **Language Support**:
   - Python: Decorators, self/cls, magic methods, type hints
   - LaTeX: Commands, environments, math mode, citations
@@ -19,11 +20,11 @@ A high-contrast Neovim colorscheme based on the VSCode "Gruvbox Crisp Anysphere 
 
 ```lua
 {
-  "VatsalSy/comphy-gruvbox.nvim",
+  "VatsalSy/comphy-theme.nvim",
   lazy = false,
   priority = 1000,
   config = function()
-    require("comphy_gruvbox").setup({
+    require("comphy-theme").setup({
       style = "dark",
       transparent = false,
       italics = {
@@ -35,7 +36,7 @@ A high-contrast Neovim colorscheme based on the VSCode "Gruvbox Crisp Anysphere 
       },
       bold = { functions = true },
     })
-    vim.cmd.colorscheme("comphy_gruvbox")
+    vim.cmd.colorscheme("comphy-theme")
   end,
 }
 ```
@@ -44,8 +45,8 @@ A high-contrast Neovim colorscheme based on the VSCode "Gruvbox Crisp Anysphere 
 
 ```lua
 -- In your Neovim config (Lua)
-require('comphy_gruvbox').setup({ style = 'dark' })  -- 'light' currently mirrors 'dark'
-vim.cmd.colorscheme('comphy_gruvbox')
+require('comphy-theme').setup({ style = 'dark' })  -- 'light' currently mirrors 'dark'
+vim.cmd.colorscheme('comphy-theme')
 ```
 
 Note: The `style = 'light'` option currently aliases the dark palette. A true
@@ -53,17 +54,17 @@ light palette is planned; until then, `light` renders identically to `dark`.
 
 ```vim
 " Vimscript equivalent
-colorscheme comphy_gruvbox
+colorscheme comphy-theme
 ```
 
 ### [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
 ```lua
 use {
-  "VatsalSy/comphy-gruvbox.nvim",
+  "VatsalSy/comphy-theme.nvim",
   config = function()
-    require("comphy_gruvbox").setup()
-    vim.cmd.colorscheme("comphy_gruvbox")
+    require("comphy-theme").setup()
+    vim.cmd.colorscheme("comphy-theme")
   end
 }
 ```
@@ -71,33 +72,67 @@ use {
 ### [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```vim
-Plug 'VatsalSy/comphy-gruvbox.nvim'
+Plug 'VatsalSy/comphy-theme.nvim'
 ```
 
 Then in your config:
 
 ```vim
-colorscheme comphy_gruvbox
+colorscheme comphy-theme
 ```
 
 ## Color Palette
 
+### Syntax Colors
+
+| Element | Color | Hex | Source |
+|---------|-------|-----|--------|
+| Background | Purple-black | `#0d0a11` | Obsidian dark base |
+| Foreground | Warm cream | `#ece6de` | `--text-primary` |
+| Comments | Purple-gray | `#9f93ad` | `--code-comment` |
+| Strings | Olive | `#b8bb26` | `--code-string` |
+| Keywords | Pink/Magenta | `#d798df` | `--code-keyword` |
+| Functions | Cyan/Aqua | `#8fd3ce` | `--code-function` |
+| Numbers | Golden | `#fabd2f` | `--code-number` |
+| Types | Aqua/Teal | `#83a598` | `--code-type` |
+| Operators | Deep Orange | `#fe8019` | `--code-operator` |
+| Variables | Light Purple | `#d6cde4` | `--code-normal` |
+
+### Heading Cascade
+
+| Level | Color | Hex |
+|-------|-------|-----|
+| H1 | Purple | `#b67abb` |
+| H2 | Gold | `#ecad4c` |
+| H3 | Golden-yellow | `#edb83a` |
+| H4 | Green | `#8ec07c` |
+| H5 | Teal | `#96c8c5` |
+| H6 | Blue | `#8db6e3` |
+
+### UI Accents
+
 | Element | Color | Hex |
 |---------|-------|-----|
-| Background | Pure Black | `#000000` |
-| Foreground | Pure White | `#ffffff` |
-| Comments | Blue-Gray | `#6272a4` |
-| Strings | Bright Green | `#50fa7b` |
-| Keywords | Pale Yellow | `#f1fa8c` |
-| Functions | Hot Pink | `#ff79c6` |
-| Numbers | Bright Purple | `#bd93f9` |
-| Types | Bright Cyan | `#8be9fd` |
-| Operators | Orange | `#ffb86c` |
+| Cursor | Purple | `#ae73b5` |
+| Selection | Deep purple | `#3e244d` |
+| Focus ring | Pink-purple | `#c88bcf` |
+| Links | Blue | `#8cb6e8` |
+| Borders | Dark purple | `#2f2937` |
+
+### Diagnostics
+
+| Level | Color | Hex |
+|-------|-------|-----|
+| Error | Red | `#fb4934` |
+| Warning | Yellow | `#fabd2f` |
+| Info | Blue | `#7da8d8` |
+| Hint | Aqua | `#83a598` |
+| OK | Green | `#8ec07c` |
 
 ## Configuration
 
 ```lua
-require("comphy_gruvbox").setup({
+require("comphy-theme").setup({
   style = "dark",       -- "dark" (default). "light" currently mirrors "dark"; invalid falls back to "dark"
   transparent = false,  -- Transparent background
   terminal_colors = true, -- Set terminal colors
@@ -122,12 +157,12 @@ require("comphy_gruvbox").setup({
 ### Override Examples
 
 ```lua
-require("comphy_gruvbox").setup({
+require("comphy-theme").setup({
   overrides = {
     -- Make comments bold and italic
-    Comment = { fg = "#6272a4", bold = true, italic = true },
+    Comment = { fg = "#9f93ad", bold = true, italic = true },
     -- Change function color
-    Function = { fg = "#50fa7b" },
+    Function = { fg = "#b8bb26" },
   }
 })
 ```
@@ -136,23 +171,23 @@ require("comphy_gruvbox").setup({
 
 The theme includes comprehensive Python highlighting:
 
-- **Decorators** (`@property`, `@staticmethod`): Purple `#9b4fa0`
-- **Self/cls**: Mauve italic `#d3869b`
+- **Decorators** (`@property`, `@staticmethod`): Purple `#ae73b5`
+- **Self/cls**: Light purple italic `#c69acc`
 - **Built-in functions** (`print`, `len`): Orange `#fe8019`
-- **Magic methods** (`__init__`, `__str__`): Type color `#8ec07c`
+- **Magic methods** (`__init__`, `__str__`): Green `#8ec07c`
 - **Docstrings**: Comment style with italics
-- **Type hints**: Cyan `#8be9fd`
+- **Type hints**: Aqua `#83a598`
 - **Keywords** (`class`, `def`, `async`): Red `#fb4934`
 
 ## LaTeX Support
 
 Extensive LaTeX highlighting with proper coloring:
 
-- **Commands** (`\documentclass`, `\usepackage`): Green `#b8bb26`
+- **Commands** (`\documentclass`, `\usepackage`): Aqua `#83a598`
 - **Control keywords** (`\begin`, `\end`): Red `#fb4934`
-- **Math mode**: Yellow `#fabd2f`
-- **Environment names**: Cyan `#8be9fd`
-- **Comments** (starting with `%`): Gray italic `#7c6f64`
+- **Math mode**: Golden `#fabd2f`
+- **Environment names**: Aqua `#83a598`
+- **Comments** (starting with `%`): Purple-gray italic `#7a6e88`
 
 ## Language Examples
 
@@ -181,6 +216,5 @@ MIT © 2025 Vatsal Sanjay
 
 ## Acknowledgments
 
-- Based on the [VSCode Gruvbox Crisp theme specification](https://github.com/VatsalSy/gruvbox_custom_themes)
-- Color palette inspired by Dracula theme
+- Palette derived from the [CoMPhy Obsidian theme](https://github.com/VatsalSy/comphy-obsidian-theme)
 - Original gruvbox theme by [morhetz](https://github.com/morhetz/gruvbox)

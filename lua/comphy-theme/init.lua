@@ -1,6 +1,6 @@
 -- luacheck: globals vim
-local palette = require("comphy_gruvbox.palette")
-local groups = require("comphy_gruvbox.groups")
+local palette = require("comphy-theme.palette")
+local groups = require("comphy-theme.groups")
 
 local M = {}
 
@@ -68,7 +68,7 @@ function M.load()
     style = "dark"
   end
   vim.o.background = style
-  vim.g.colors_name = "comphy_gruvbox"
+  vim.g.colors_name = "comphy-theme"
 
   local p = (style == "light") and palette.light or palette.dark
   local function safe(key, fallback)

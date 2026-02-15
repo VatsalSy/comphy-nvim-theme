@@ -74,7 +74,7 @@ const comphyGruvbox = {
 class ThemeManager:
     """Manages color themes for the editor"""
 
-    def __init__(self, theme_name="comphy_gruvbox"):
+    def __init__(self, theme_name="comphy-theme"):
         self.theme_name = theme_name
 ```
 
