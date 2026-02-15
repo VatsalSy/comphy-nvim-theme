@@ -33,7 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `@namespace`: keyword color (was number)
 - `@markup.raw`: uses variable/code-normal (was string)
 - `@markup.strong`: light purple bold; `@markup.italic`: green italic
-- Legacy markdown headings use per-level colors instead of link to Title
+- Legacy Markdown headings use per-level colors instead of link to Title
 
 ### Removed
 

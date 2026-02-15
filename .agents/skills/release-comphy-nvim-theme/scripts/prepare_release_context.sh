@@ -39,8 +39,12 @@ bash "$CHECK_SCRIPT"
 check_exit=$?
 set -e
 
-if [[ "$check_exit" -eq 1 ]]; then
-  echo "Blocking prerequisite issues detected. Resolve them before release." >&2
+if [[ "$check_exit" -ne 0 ]]; then
+  if [[ "$check_exit" -eq 1 ]]; then
+    echo "Blocking prerequisite issues detected. Resolve them before release." >&2
+  else
+    echo "Prerequisite check failed with exit code $check_exit. Resolve the issue before release." >&2
+  fi
   exit 1
 fi
 

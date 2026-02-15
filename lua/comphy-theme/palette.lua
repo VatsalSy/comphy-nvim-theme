@@ -128,18 +128,27 @@ M.dark = {
 -- Create an independent copy so future adjustments to light can diverge
 M.light = deepcopy_tbl(M.dark)
 
--- make palettes readonly (shallow) to avoid accidental mutation
+-- make palettes readonly (recursive) to avoid accidental mutation
 local function readonly(tbl)
+  local wrapped = {}
+  for key, value in pairs(tbl) do
+    if type(value) == "table" then
+      wrapped[key] = readonly(value)
+    else
+      wrapped[key] = value
+    end
+  end
+
   return setmetatable({}, {
-    __index = tbl,
+    __index = wrapped,
     __newindex = function()
       error("palette tables are readonly", 2)
     end,
     __pairs = function()
-      return pairs(tbl)
+      return pairs(wrapped)
     end,
     __ipairs = function()
-      return ipairs(tbl)
+      return ipairs(wrapped)
     end,
   })
 end

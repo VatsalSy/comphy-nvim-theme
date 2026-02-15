@@ -1,5 +1,5 @@
 /**
- * C Demo - CoMPhy Gruvbox Theme
+ * C Demo - CoMPhy Theme
  * Demonstrates various C language syntax highlighting features
  * Author: Vatsal Sanjay
  * Date: 2024-01-20
@@ -264,7 +264,7 @@ void file_operations_demo(void) {
     }
 
     // Writing to file
-    fprintf(file, "CoMPhy Gruvbox Theme Demo\n");
+    fprintf(file, "CoMPhy Theme Demo\n");
     fprintf(file, "Version: %s\n", VERSION);
     fprintf(file, "Platform: %s\n", PLATFORM);
 
@@ -387,7 +387,7 @@ static inline int square(int x) {
 
 // Main function
 int main(int argc, char *argv[]) {
-    printf("%sCoMPhy Gruvbox Theme - C Language Demo%s\n", COLORS[COLOR_GREEN], RESET);
+    printf("%sCoMPhy Theme - C Language Demo%s\n", COLORS[COLOR_GREEN], RESET);
     printf("Version: %s, Platform: %s\n\n", VERSION, PLATFORM);
 
     // Command line arguments

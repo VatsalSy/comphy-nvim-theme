@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.com/comphy-theme-config.schema.json",
-  "title": "CoMPhy Theme Theme Configuration",
-  "description": "Configuration file for CoMPhy Theme theme demonstrating JSON syntax highlighting",
+  "title": "CoMPhy Theme Configuration",
+  "description": "Configuration file for the CoMPhy Theme demonstrating JSON syntax highlighting",
   "type": "object",
   "required": ["name", "version", "themes"],
 
@@ -198,7 +198,10 @@
         "betaAPI": {
           "type": ["object", "null"],
           "properties": {
-            "enabled": false,
+            "enabled": {
+              "type": "boolean",
+              "default": false
+            },
             "apiKey": {
               "type": "string",
               "writeOnly": true

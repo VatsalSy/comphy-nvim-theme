@@ -4,7 +4,7 @@ A warm, purple-accent Neovim colorscheme aligned with the CoMPhy Obsidian theme.
 
 ## Features
 
-- **Warm Purple Backgrounds**: Purple-tinted near-black (`#0d0a11`) with cream (`#ece6de`) foreground
+- **Warm Purple Backgrounds**: Purple-tinted near-black (`#000000`) with cream (`#ece6de`) foreground
 - **Soft Variant**: Enable soft contrast via `contrast = "soft"` to use the theme's `bg1` background for reduced eye strain
 - **Obsidian Alignment**: Every color traces back to the CoMPhy Obsidian theme's design system
 - **Heading Cascade**: Six distinct heading colors matching Obsidian (purple, gold, golden-yellow, green, teal, blue)
@@ -87,7 +87,7 @@ colorscheme comphy-theme
 
 | Element | Color | Hex | Source |
 |---------|-------|-----|--------|
-| Background | Purple-black | `#0d0a11` | Obsidian dark base |
+| Background | Purple-black | `#000000` | Obsidian dark base |
 | Foreground | Warm cream | `#ece6de` | `--text-primary` |
 | Comments | Purple-gray | `#9f93ad` | `--code-comment` |
 | Strings | Olive | `#b8bb26` | `--code-string` |
