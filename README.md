@@ -45,7 +45,7 @@ A warm, purple-accent Neovim colorscheme aligned with the CoMPhy Obsidian theme.
 
 ```lua
 -- In your Neovim config (Lua)
-require('comphy-theme').setup({ style = 'dark' })  -- 'light' currently mirrors 'dark'
+require('comphy-theme').setup({ style = 'dark' })  -- 'plum' for the brand-purple variant; 'light' currently mirrors 'dark'
 vim.cmd.colorscheme('comphy-theme')
 ```
 
@@ -133,7 +133,7 @@ colorscheme comphy-theme
 
 ```lua
 require("comphy-theme").setup({
-  style = "dark",       -- "dark" (default). "light" currently mirrors "dark"; invalid falls back to "dark"
+  style = "dark",       -- "dark" (default) | "plum" (near-black, CoMPhy brand-purple accent) | "light" (currently mirrors "dark"); invalid falls back to "dark"
   transparent = false,  -- Transparent background
   terminal_colors = true, -- Set terminal colors
   contrast = "highest",  -- "highest" | "soft"
