@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.1.0] - 2026-08-09
+
 ### Added
 
 - **`style = "plum"` palette** ("CoMPhy Gruvbox Plum"): near-black `#111111` editor on `#161616` surfaces, bright `#fcfcfc` foreground, CoMPhy brand purple `#68236D` selection/UI accent, and Gruvbox/Dracula syntax hues — pale yellow keywords, bright green strings, hot-pink functions, cyan types, orange operators, cool blue-gray comments. Matches the VS Code theme of the same name.
