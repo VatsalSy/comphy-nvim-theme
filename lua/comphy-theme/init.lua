@@ -64,13 +64,15 @@ function M.load()
 
   -- Choose palette based on style option, defaulting to dark for invalid values
   local style = (o.style or "dark"):lower()
-  if style ~= "light" and style ~= "dark" then
+  if style ~= "light" and style ~= "dark" and style ~= "plum" then
     style = "dark"
   end
-  vim.o.background = style
+  vim.o.background = (style == "light") and "light" or "dark"
   vim.g.colors_name = "comphy-theme"
 
-  local p = (style == "light") and palette.light or palette.dark
+  local p = (style == "light") and palette.light
+    or (style == "plum") and palette.plum
+    or palette.dark
   local function safe(key, fallback)
     return p[key] or fallback
   end

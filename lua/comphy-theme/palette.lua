@@ -124,6 +124,112 @@ M.dark = {
   },
 }
 
+-- Plum variant (VS Code "CoMPhy Gruvbox Plum"-aligned: near-black surfaces,
+-- CoMPhy brand purple #68236D UI accent, Gruvbox/Dracula syntax hues)
+M.plum = {
+  -- Backgrounds
+  bg0 = "#111111", -- editor background (near-black)
+  bg1 = "#161616", -- soft contrast background (side surfaces)
+  bg2 = "#1c1c1c", -- hover/list backgrounds
+  bg3 = "#232323", -- subtle separators
+  bg4 = "#2a2a2a", -- elevated surfaces
+  bg5 = "#3c3836", -- highest surface layer (warm gruvbox gray)
+
+  -- Foreground
+  fg0 = "#fcfcfc", -- editor foreground (bright, near-white)
+  fg1 = "#ebdbb2", -- secondary text (gruvbox cream)
+  fg2 = "#a89984", -- muted text
+  fg3 = "#7c6f64", -- faint text
+  ui_fg = "#fcfcfc", -- general UI foreground (= fg0)
+
+  -- Neutral borders
+  border_neutral = "#3c3836",
+
+  -- Core syntax
+  comment = "#7887ab", -- cool blue-gray, italic
+  string = "#50fa7b", -- bright dracula green
+  keyword = "#f1fa8c", -- pale dracula yellow
+  func = "#ff79c6", -- hot pink (definitions)
+  func_call = "#b8bb26", -- olive for calls
+  number = "#bd93f9", -- dracula lilac
+  type = "#8be9fd", -- dracula cyan
+  operator = "#ffb86c", -- soft orange
+  variable = "#e2dcd0", -- warm off-white
+  decorator = "#9b4fa0", -- purple (python decorators)
+  const = "#d3869b", -- gruvbox pink
+  preproc = "#fe8019", -- orange preprocessor/meta
+  kw_ctrl = "#fb4934", -- control keywords (if/for/return, storage)
+  property = "#83a598", -- gruvbox aqua-blue
+  magic = "#8ec07c", -- gruvbox green (dunder/magic)
+  magic_method = "#8ec07c", -- legacy alias
+
+  -- Language-specific colors
+  latex_math = "#fabd2f", -- LaTeX math mode (golden)
+  latex_comment = "#928374", -- LaTeX comments (warm gray)
+  entity_name = "#b8bb26", -- Entity names (olive)
+
+  -- Heading cascade (markdown warm-to-cool)
+  heading_1 = "#fb4934", -- red
+  heading_2 = "#fe8019", -- orange
+  heading_3 = "#fabd2f", -- yellow
+  heading_4 = "#b8bb26", -- green
+  heading_5 = "#83a598", -- blue
+  heading_6 = "#d3869b", -- pink
+
+  -- UI accents (CoMPhy brand purple family)
+  cursor = "#9b4fa0", -- purple cursor
+  selection = "#29162b", -- brand purple at ~28% on bg0
+  selection_med = "#321834", -- brand purple at ~38%
+  selection_high = "#3b1a3d", -- brand purple at ~48%
+  linehl_subtle = "#1a1a1a", -- neutral subtle
+  linehl = "#202020", -- neutral normal
+  linehl_strong = "#262626", -- neutral strong
+  border_focus = "#8a3b90", -- lighter brand purple
+  hover_bg = "#1c1c1c",
+  link = "#bd93f9", -- dracula lilac
+  link_active = "#d6acff",
+  line_nr_active = "#ffb86c", -- orange active line number
+  line_nr = "#665c54",
+
+  -- VCS / Diff
+  red = "#fb4934",
+  green = "#b8bb26",
+  warn = "#d79921",
+  info = "#83a598",
+  hint = "#6272a4",
+  ok = "#b8bb26",
+  diff_add_bg = "#152112", -- green-tinted dark
+  diff_delete_bg = "#241413", -- red-tinted dark
+  diff_text = "#83a598",
+
+  -- Utility
+  gray = "#928374",
+  punct = "#a89984",
+  code_bg = "#1c1c1c",
+  none = "NONE",
+
+  -- Terminal ANSI
+  term = {
+    black = "#212121",
+    red = "#ff5555",
+    green = "#50fa7b",
+    yellow = "#f1fa8c",
+    blue = "#6cb6ff",
+    magenta = "#bd93f9",
+    cyan = "#8be9fd",
+    white = "#cccccc",
+
+    bright_black = "#6272a4",
+    bright_red = "#ff6e6e",
+    bright_green = "#69ff94",
+    bright_yellow = "#ffffa5",
+    bright_blue = "#79c7ff",
+    bright_magenta = "#d6acff",
+    bright_cyan = "#a4ffff",
+    bright_white = "#ffffff",
+  },
+}
+
 -- `M.light` intentionally starts as a deepcopy of `M.dark` for compatibility.
 -- TODO: customize `M.light` to diverge from `M.dark` (true light backgrounds,
 -- darker neutral text, and softer accent saturation).
@@ -157,5 +263,6 @@ end
 
 M.dark = readonly(M.dark)
 M.light = readonly(M.light)
+M.plum = readonly(M.plum)
 
 return M
