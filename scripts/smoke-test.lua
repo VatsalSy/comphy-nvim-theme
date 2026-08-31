@@ -25,6 +25,12 @@ local expected = {
   light = 0x000000,
 }
 
+-- `:colorscheme comphy-theme` must work without a prior setup() call, so this
+-- runs before the loop below: once setup() has been called the module no longer
+-- holds its module-level defaults and the no-setup path goes untested.
+local ok_cs, err_cs = pcall(vim.cmd.colorscheme, "comphy-theme")
+check("colorscheme", ok_cs, tostring(err_cs))
+
 for _, style in ipairs({ "dark", "plum", "light" }) do
   local ok, err = pcall(function()
     require("comphy-theme").setup({ style = style })
@@ -64,10 +70,6 @@ for _, style in ipairs({ "dark", "plum", "light" }) do
     "colors_name is " .. tostring(vim.g.colors_name)
   )
 end
-
--- `:colorscheme comphy-theme` must work without a prior setup() call.
-local ok_cs, err_cs = pcall(vim.cmd.colorscheme, "comphy-theme")
-check("colorscheme", ok_cs, tostring(err_cs))
 
 if #failures > 0 then
   io.stderr:write("smoke test FAILED\n")
