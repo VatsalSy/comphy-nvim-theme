@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.2.0] - 2026-08-31
+
 ### Fixed
 
 - Install instructions pointed at `VatsalSy/comphy-theme.nvim`, which does not
@@ -22,10 +24,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `scripts/smoke-test.lua`, which loads every advertised style headlessly,
   asserts the painted background, and fails when `&background` disagrees with
   what the palette paints.
-- `groups.lua` reformatted to satisfy the `.stylua.toml` already in the
-  repository.
 - CI, which this repository previously had none of: the smoke test runs on
   Neovim 0.9.5 and stable, and stylua is enforced.
+
+### Changed
+
+- `groups.lua` reformatted to satisfy the `.stylua.toml` already in the
+  repository. No highlight values changed.
 
 ## [v1.1.0] - 2026-08-09
 
