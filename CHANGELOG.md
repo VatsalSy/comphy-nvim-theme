@@ -24,6 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   what the palette paints.
 - `groups.lua` reformatted to satisfy the `.stylua.toml` already in the
   repository.
+- CI, which this repository previously had none of: the smoke test runs on
+  Neovim 0.9.5 and stable, and stylua is enforced.
 
 ## [v1.1.0] - 2026-08-09
 
