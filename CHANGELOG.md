@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Install instructions pointed at `VatsalSy/comphy-theme.nvim`, which does not
+  exist and does not redirect. The repository is `comphy-lab/comphy-nvim-theme`;
+  every lazy.nvim, packer and vim-plug snippet in the README was unusable.
+- `style = "light"` set `vim.o.background = "light"` while loading the dark
+  palette, so plugins that branch on `&background` applied light-mode heuristics
+  to a near-black editor. The flag now reports `dark` until `palette.light`
+  actually diverges from `palette.dark`.
+
+### Added
+
+- `scripts/smoke-test.lua`, which loads every advertised style headlessly,
+  asserts the painted background, and fails when `&background` disagrees with
+  what the palette paints.
+- `groups.lua` reformatted to satisfy the `.stylua.toml` already in the
+  repository.
+
 ## [v1.1.0] - 2026-08-09
 
 ### Added

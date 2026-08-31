@@ -274,7 +274,8 @@ function M.get(p, o)
     ["@markup.link.label"] = { fg = p.link_active },
     ["@string.special.url"] = { fg = p.link, underline = true },
     ["@markup.raw"] = { fg = p.variable }, -- code-normal (light purple)
-    ["@markup.raw.block"] = transparent and { fg = p.variable } or { fg = p.variable, bg = p.code_bg }, -- code block
+    ["@markup.raw.block"] = transparent and { fg = p.variable }
+      or { fg = p.variable, bg = p.code_bg }, -- code block
     ["@markup.list"] = { fg = p.operator },
     ["@markup.quote"] = { fg = p.comment },
 

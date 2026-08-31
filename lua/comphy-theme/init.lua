@@ -67,7 +67,12 @@ function M.load()
   if style ~= "light" and style ~= "dark" and style ~= "plum" then
     style = "dark"
   end
-  vim.o.background = (style == "light") and "light" or "dark"
+  -- `light` is still a stub: palette.light is a copy of palette.dark, so the
+  -- surfaces it paints are dark. Reporting `background=light` would make every
+  -- plugin that branches on `&background` (lualine, gitsigns, treesitter-context)
+  -- choose light-mode heuristics against a near-black editor. Keep the flag
+  -- truthful until palette.light actually diverges.
+  vim.o.background = "dark"
   vim.g.colors_name = "comphy-theme"
 
   local p = (style == "light") and palette.light
