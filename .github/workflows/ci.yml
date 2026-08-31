@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# This repository restricts Actions to an allowlist that covers actions/* but
+# not the usual Neovim and StyLua setup actions, so both tools are installed
+# from their pinned upstream releases rather than through a third-party action.
+env:
+  STYLUA_VERSION: v2.5.2
+
+jobs:
+  format:
+    name: stylua
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install StyLua ${{ env.STYLUA_VERSION }}
+        run: |
+          curl -fsSL -o stylua.zip \
+            "https://github.com/JohnnyMorganz/StyLua/releases/download/${STYLUA_VERSION}/stylua-linux-x86_64.zip"
+          unzip -q stylua.zip -d "$RUNNER_TEMP/stylua"
+          chmod +x "$RUNNER_TEMP/stylua/stylua"
+          echo "$RUNNER_TEMP/stylua" >> "$GITHUB_PATH"
+
+      - name: Check formatting
+        run: stylua --check colors lua scripts
+
+  smoke:
+    name: load themes (${{ matrix.neovim.tag }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Oldest supported release and the current stable line. The release
+        # asset was renamed between the two, hence the explicit pairing.
+        neovim:
+          - tag: v0.9.5
+            asset: nvim-linux64.tar.gz
+          - tag: stable
+            asset: nvim-linux-x86_64.tar.gz
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Neovim ${{ matrix.neovim.tag }}
+        run: |
+          curl -fsSL -o nvim.tar.gz \
+            "https://github.com/neovim/neovim/releases/download/${{ matrix.neovim.tag }}/${{ matrix.neovim.asset }}"
+          mkdir -p "$RUNNER_TEMP/nvim"
+          tar -xzf nvim.tar.gz -C "$RUNNER_TEMP/nvim" --strip-components=1
+          echo "$RUNNER_TEMP/nvim/bin" >> "$GITHUB_PATH"
+
+      - name: Report version
+        run: nvim --version | head -1
+
+      - name: Load every style headlessly
+        run: |
+          nvim --headless --clean -u NONE \
+            -c "set rtp+=$PWD" \
+            -c "luafile scripts/smoke-test.lua" \
+            -c q

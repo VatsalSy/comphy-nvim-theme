@@ -233,7 +233,7 @@ M.plum = {
 -- `M.light` intentionally starts as a deepcopy of `M.dark` for compatibility.
 -- TODO: customize `M.light` to diverge from `M.dark` (true light backgrounds,
 -- darker neutral text, and softer accent saturation).
--- Tracker: https://github.com/VatsalSy/comphy-theme.nvim/issues?q=is%3Aissue+is%3Aopen+light+palette
+-- Tracker: https://github.com/comphy-lab/comphy-nvim-theme/issues?q=is%3Aissue+is%3Aopen+light+palette
 M.light = deepcopy_tbl(M.dark)
 
 -- make palettes readonly (recursive) to avoid accidental mutation

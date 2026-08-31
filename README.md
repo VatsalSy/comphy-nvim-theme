@@ -20,7 +20,7 @@ A warm, purple-accent Neovim colorscheme aligned with the CoMPhy Obsidian theme.
 
 ```lua
 {
-  "VatsalSy/comphy-theme.nvim",
+  "comphy-lab/comphy-nvim-theme",
   lazy = false,
   priority = 1000,
   config = function()
@@ -61,7 +61,7 @@ colorscheme comphy-theme
 
 ```lua
 use {
-  "VatsalSy/comphy-theme.nvim",
+  "comphy-lab/comphy-nvim-theme",
   config = function()
     require("comphy-theme").setup()
     vim.cmd.colorscheme("comphy-theme")
@@ -72,7 +72,7 @@ use {
 ### [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```vim
-Plug 'VatsalSy/comphy-theme.nvim'
+Plug 'comphy-lab/comphy-nvim-theme'
 ```
 
 Then in your config:
@@ -216,5 +216,5 @@ MIT © 2025 Vatsal Sanjay
 
 ## Acknowledgments
 
-- Palette derived from the [CoMPhy Obsidian theme](https://github.com/VatsalSy/comphy-obsidian-theme)
+- Palette derived from the [CoMPhy Obsidian theme](https://github.com/comphy-lab/comphy-obsidian-theme)
 - Original gruvbox theme by [morhetz](https://github.com/morhetz/gruvbox)
